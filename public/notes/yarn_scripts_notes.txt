@@ -1,0 +1,35 @@
+npm install -g yarn
+
+yarn init
+yarn install
+yarn add webpack@4.12.1
+yarn add webpack-cli@3.0.8
+mkdir src 
+mkdir public
+
+yarn add babel-cli@6.24.1 babel-core@6.26.3 babel-loader@7.1.4 babel-preset-env@1.5.2 babel-preset-react@6.24.1
+
+// add .babelrc
+
+yarn add react-scripts@3.4.1  // in current project
+
+
+
+
+yarn run build 
+yarn run prebuild 
+yarn build
+
+yarn test -o --watch
+
+yarn run env
+// displays env variables available at runtime
+// If you want to override this command, you can do so by defining your own "env" script in package.json.
+
+
+// for babel to work globally
+npm install -g @babel/node
+npm install -g @babel/cli
+npm install -g @babel/core
+
+
