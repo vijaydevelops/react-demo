@@ -1,11 +1,15 @@
-const page = (
+const navbar = (
     <nav>
-        <h1>Header BrandCom</h1>
-        <p>Described here...</p>
+        <h1>BrandCom</h1>
+        <ul>
+            <li>Pricing</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
     </nav>
 );
-// jsx element should have children under a single parent node
+
 ReactDOM.render(
-    page,
+    navbar,
     document.getElementById("root")
 );
