@@ -1,25 +1,71 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useState, Component } from "react";
+import ReactDOM, { render } from "react-dom";
+import {
+    BrowserRouter as Router,
+    Switch,     // Routes in v6
+    Route,
+    Link,
+    Redirect    // Navigate in v6
+} from "react-router-dom";
+import ContextDemo from "./useContextDemo";
+import demo1 from "./demo1";
 
-const Navbar = () => (
-    <nav>
-        <img src="/images/react-logo.png" alt="react logo" width="40px" />
-    </nav>
-);
+function App() {
+    const [user, setUser] = useState({
+        name: "Demo",
+        isUserAuthenticated: true
+    });
 
-const block = (<div>
-    <Navbar />
-    <h1>Fun Facts about React</h1>
-    <ul>
-        <li>Was first released in 2013</li>
-        <li>Was originally created by Jordan Walke</li>
-        <li>Has well over 100k stars on GitHub</li>
-        <li>Is maintained by Facebook</li>
-        <li>Powers thousands of enterpise apps, including mobile apps</li>
-    </ul>
-</div>)
+    // render() function
+    return (
+        <div>
+            <Router>
+                <div>
+                    <ul>
+                        <li>
+                            <Link to="/context-demo">Context Demo</Link>
+                        </li>
+                        <li>
+                            <Link to="/current-demo">Demo 1</Link>
+                        </li>
+                    </ul>
+                    <hr />
+                    <br />
+                    <br />
+
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            component={_ => (
+                                <>
+                                    {user.isUserAuthenticated
+                                        ? <Redirect to="/current-demo" />
+                                        : <Redirect to="/context-demo" />
+                                    }
+                                </>
+                            )
+                            }
+                        />
+                        <Route
+                            exact
+                            path="/context-demo"
+                            // component={_ => <ContextDemo />}
+                            component={ContextDemo}
+                        />
+                        <Route
+                            exact
+                            path="/current-demo"
+                            component={_ => demo1}
+                        />
+                    </Switch>
+                </div>
+            </Router>
+        </div>
+    );
+}
 
 ReactDOM.render(
-    block,
+    <App />,
     document.getElementById("root")
 );
