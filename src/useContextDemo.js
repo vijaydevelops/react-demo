@@ -16,7 +16,11 @@ export default function ContextDemo() {
     return (
         <UserContext.Provider value={user}>
             <h1>{`Hello ${user}!`}</h1>
-            <Component2 user={user} />
+
+            {/*
+                <Component2 user={user} />
+            */}
+            <Component2 />
         </UserContext.Provider>
     );
 }
@@ -54,7 +58,7 @@ function Component5() {
     return (
         <>
             <h1>Component 5</h1>
-            <h2>{`Hello ${user} again!`}</h2>
+            <h2>{`Hello ${user} again updated!`}</h2>
         </>
     );
 }
