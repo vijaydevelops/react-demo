@@ -1,17 +1,25 @@
-import React from "react";  // for recognizing jsx
+import React from "react";
 import ReactDOM from "react-dom";
 
-const navbar = (
+const Navbar = () => (
     <nav>
-        <h1>Header BrandCom</h1>
+        <img src="/images/react-logo.png" alt="react logo" width="40px" />
     </nav>
 );
 
-// jsx is converted into dom elements ....... here
+const block = (<div>
+    <Navbar />
+    <h1>Fun Facts about React</h1>
+    <ul>
+        <li>Was first released in 2013</li>
+        <li>Was originally created by Jordan Walke</li>
+        <li>Has well over 100k stars on GitHub</li>
+        <li>Is maintained by Facebook</li>
+        <li>Powers thousands of enterpise apps, including mobile apps</li>
+    </ul>
+</div>)
+
 ReactDOM.render(
-    navbar,
+    block,
     document.getElementById("root")
 );
-
-// document.getElementById("root").append(navbar)
-// does not work, because navbar is POJO and not a dom element to be appended
